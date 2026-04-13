@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'presentation_screen.dart';
 
 class TrainingScreen extends StatelessWidget {
   const TrainingScreen({super.key});
@@ -8,6 +9,22 @@ class TrainingScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Gender in the Workplace Training'),
+        actions: [
+          Builder(
+            builder: (context) => IconButton(
+              icon: const Icon(Icons.slideshow),
+              tooltip: 'View Presentation',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const PresentationScreen(),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
       ),
       body: ListView(
         padding: const EdgeInsets.all(16.0),
@@ -34,7 +51,7 @@ class TrainingScreen extends StatelessWidget {
               _SessionItem(
                 time: '03:00 PM - 04:30 PM',
                 title: 'Session 4: Legal Framework and Company Policies',
-                description: 'Reviewing anti-discrimination laws, workplace rights, and the organization\\'s specific policies on gender equality.',
+                description: "Reviewing anti-discrimination laws, workplace rights, and the organization's specific policies on gender equality.",
               ),
             ],
           ),
